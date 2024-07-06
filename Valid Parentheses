@@ -1,0 +1,15 @@
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        stack = []
+        map = {")":"(","]":"[","}":"{"}
+        for c in s:
+            if c not in map:
+                stack.append(c)
+            else:
+                if stack.pop() != map[c]:
+                    return False
+        return not stack

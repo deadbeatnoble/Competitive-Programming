@@ -10,6 +10,7 @@ class Solution(object):
             if c not in map:
                 stack.append(c)
             else:
-                if stack.pop() != map[c]:
+                top = stack.pop() if stack else "#"
+                if top != map[c]:
                     return False
         return not stack
